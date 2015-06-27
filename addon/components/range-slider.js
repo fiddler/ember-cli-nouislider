@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   step:         undefined,
   margin:       undefined,
   limit:        undefined,
+  param:        undefined,
   connect:      false,
   orientation:  "horizontal",
   direction:    "ltr",
@@ -40,14 +41,14 @@ export default Ember.Component.extend({
 
     elem.on("change", function() {
       Ember.run(function () {
-        _this.sendAction('change', _this.slider.val());
+        _this.sendAction('change', _this.slider.val(), _this.get('param'));
       });
     });
 
     if ( !Ember.isEmpty(this.get('slide')) ) {
       elem.on("slide", function() {
         Ember.run(function () {
-          _this.sendAction('slide', _this.slider.val());
+          _this.sendAction('slide', _this.slider.val(), _this.get('param'));
         });
       });
     }
