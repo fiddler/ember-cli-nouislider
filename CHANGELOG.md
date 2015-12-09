@@ -1,5 +1,30 @@
 ## master
 
+## 0.7.0 2015-08-17
+
+* Add CodeClimate badge to README
+* Update ember-cli to 1.13.8, ember.js to 1.13.7
+* Bring back 'format' (#19 - @knownasilya)
+* Bring back 'snap' and 'pips' (#18 - @kbullaughey)
+
+## 0.6.0 2015-07-09 - (Happy Birthday To Me)
+
+* Add demoURL to package.json
+* Use events instead of listeners (#14 - @knowasilya)
+* Add "formats" & "pips" suppor (#13 - @davidgoli)
+
+## 0.5.0 2015-07-02
+
+* Upgrade to nouislider 8.0.1 (#10 - @blimmer)
+* Documentation improvements (#10 - @blimmer)
+* Toolchain upgrades and tlc (#10 - @blimmer)
+
+Thanks Ben Limmer for doing all this work!
+
+## 0.4.2 2015-07-02
+
+* Pin nouislider dependency at 7.0.0 (#9 - @blimmer)
+
 ## 0.4.1 2015-06-19
 
 * Fixed an issue with actions not being called correctly (#6)
