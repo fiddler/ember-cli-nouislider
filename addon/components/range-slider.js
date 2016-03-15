@@ -23,6 +23,7 @@ export default Ember.Component.extend({
   orientation:  'horizontal',
   direction:    'ltr',
   behaviour:    'tap',
+  percentageOnHandle: false,
 
   min: 0,
   max: 100,
@@ -65,12 +66,14 @@ export default Ember.Component.extend({
       });
     });
 
-    if (!isEmpty(this.get('slide'))) {
-      slider.on('slide', () => {
-        run(this, function () {
-          this.sendAction('slide', this.get('slider').get());
-        });
+    slider.on('slide', () => {
+      run(this, function () {
+        this.sendAction('change', this.get('slider').get(), this.get('param'));
       });
+    });
+
+    if( this.get('percentageOnHandle') ) {
+      $('.noUi-handle',this.$().get(0)).html(Math.round(slider.get() / this.get('max') * 100)+'%');
     }
   }),
 
@@ -89,6 +92,9 @@ export default Ember.Component.extend({
     if (slider) {
       var val = this.get('start');
       slider.set(val);
+      if( this.get('percentageOnHandle') ) {
+        $('.noUi-handle',this.$().get(0)).html(Math.round(slider.get() / this.get('max') * 100)+'%');
+      }
     }
   })
 });
